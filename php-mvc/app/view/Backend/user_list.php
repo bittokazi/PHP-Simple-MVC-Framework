@@ -1,4 +1,4 @@
-<?php Core\view::load('Backend/header', $data); ?>
+<?php Core\View::loadView('Backend/header'); ?>
       <div class="content-wrapper">
         <div class="page-title">
           <div>
@@ -42,7 +42,7 @@
                         </tr>
                   </thead>
                   <tbody>
-                        <?php foreach($data->users as $user) { ?>
+                        <?php foreach($users as $user) { ?>
                         <tr>
                             <th><?php echo $user->id; ?></th>
                             <th><?php echo $user->username; ?></th>
@@ -67,4 +67,4 @@
     <script src="<?php echo Core\URL::asset('assets/js/bootstrap.min.js'); ?>"></script>
     <script src="<?php echo Core\URL::asset('assets/js/plugins/pace.min.js'); ?>"></script>
     <script src="<?php echo Core\URL::asset('assets/js/main.js'); ?>"></script>
-<?php Core\view::load('Backend/footer', $data); ?>
+<?php Core\View::loadView('Backend/footer'); ?>

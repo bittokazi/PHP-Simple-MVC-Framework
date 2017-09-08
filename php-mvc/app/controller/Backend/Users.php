@@ -14,8 +14,6 @@ class Users extends Controller {
     
     function __construct() {
         
-        parent::__construct();
-        
         $this->user = new User();
         
     }
@@ -26,9 +24,9 @@ class Users extends Controller {
         
         else return Response::Redirect('dashboard');
         
-        $data->users = $this->user->all();
-        
-        return $this->view()->load('Backend/user_list', $data);
+        return $this->view()->load('Backend/user_list')
+                            ->with($data, 'data')
+                            ->with($this->user->all(), 'users');
         
     }
     public function my_profile($data) {
@@ -40,9 +38,9 @@ class Users extends Controller {
         
         else return Response::Redirect('dashboard');
         
-        $data->roles = $this->user->get_user_role_all();
-        
-        return $this->view()->load('Backend/addUser', $data);
+        return $this->view()->load('Backend/addUser')
+                            ->with($data, 'data')
+                            ->with($this->user->get_user_role_all(), 'roles');
         
     }
     
@@ -72,9 +70,9 @@ class Users extends Controller {
 
                 $data->success='User Created Successfully';  
 
-                $data->users = $this->user->all();
-
-                return $this->view()->load('Backend/user_list', $data);
+                return $this->view()->load('Backend/user_list')
+                                    ->with($data, 'data')
+                                    ->with($this->user->all(), 'users');
 
             }
 
@@ -112,11 +110,11 @@ class Users extends Controller {
             
         }
         
-        $data->page_title = "Edit User";  
+        $data->page_title = "Edit User";
         
-        $data->roles = $this->user->get_user_role_all();
-        
-        return $this->view()->load('Backend/editUser', $data);
+        return $this->view()->load('Backend/editUser')
+                            ->with($data, 'data')
+                            ->with($this->user->get_user_role_all(), 'roles');
         
     }
     
@@ -131,10 +129,10 @@ class Users extends Controller {
         if($this->user->update($user_data)) {
         
             $data->success='User Updated Successfully';  
-            
-            $data->users = $this->user->all();
         
-            return $this->view()->load('Backend/user_list', $data);
+            return $this->view()->load('Backend/user_list')
+                                ->with($data, 'data')
+                                ->with($this->user->all(), 'users');
         
         }
         
@@ -182,9 +180,7 @@ class Users extends Controller {
             
         }
         
-        $data->users = $this->user->all();
-        
-        return $this->view()->load('Backend/user_list', $data);
+        return $this->view()->load('Backend/user_list')->with($data, 'data')->with($this->user->all(), 'users');
         
     }
     

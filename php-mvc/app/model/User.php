@@ -36,7 +36,7 @@ class User extends Model {
     
     public function all() {
         
-        return $this->DB()->prepared_select('SELECT *, user.id as id FROM user INNER JOIN user_role ON user.role=user_role.id', '', array());
+        return $this->DB()->prepared_select('SELECT *, user.id as id FROM user INNER JOIN user_role ON user.role=user_role.id ORDER BY user.id DESC', '', array());
     
     }
     

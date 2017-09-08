@@ -1,4 +1,4 @@
-<?php Core\view::load('Backend/header', $data); ?>
+<?php Core\View::loadView('Backend/header'); ?>
       <div class="content-wrapper">
         <div class="page-title">
           <div>
@@ -14,10 +14,10 @@
         </div>
         <div class="row">
          
-            <?php if(isset($data->data->error)) { ?>
+            <?php if(isset($data->data['error'])) { ?>
              
             <div class="col-md-12">
-                 <?php foreach($data->data->error as $error) { ?>
+                 <?php foreach($data->data['error'] as $error) { ?>
                  
                  <div class="alert alert-dismissible alert-danger">
                         <button class="close" type="button" data-dismiss="alert">×</button>
@@ -55,7 +55,7 @@
                 <div class="form-group">
                     <label class="control-label">Select Role</label>
                     <select class="form-control" id="select" name="role">
-                        <?php foreach($data->roles as $role) { ?>
+                        <?php foreach($roles as $role) { ?>
                         <option value="<?php echo $role->id; ?>" <?php if(isset($data->data['data'])) { if($data->data['data'][7]==$role->id) echo 'selected'; } ?>><?php echo $role->title; ?></option>
                         <?php } ?>
                     </select>
@@ -89,4 +89,4 @@
     <script src="<?php echo Core\URL::asset('assets/js/bootstrap.min.js'); ?>"></script>
     <script src="<?php echo Core\URL::asset('assets/js/plugins/pace.min.js'); ?>"></script>
     <script src="<?php echo Core\URL::asset('assets/js/main.js'); ?>"></script>
-<?php Core\view::load('Backend/footer', $data); ?>
+<?php Core\View::loadView('Backend/footer'); ?>

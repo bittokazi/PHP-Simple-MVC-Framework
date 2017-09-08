@@ -1,4 +1,4 @@
-<?php Core\view::load('Backend/header', $data); ?>
+<?php Core\View::loadView('Backend/header'); ?>
       <div class="content-wrapper">
         <div class="page-title">
           <div>
@@ -58,7 +58,7 @@
                 <div class="form-group">
                     <label class="control-label">Select Role</label>
                     <select class="form-control" id="select" name="role">
-                        <?php foreach($data->roles as $role) { ?>
+                        <?php foreach($roles as $role) { ?>
                         <option value="<?php echo $role->id; ?>" <?php if(isset($data->data['data'])) { if($data->data['data'][6]==$role->id) echo 'selected'; } ?>><?php echo $role->title; ?></option>
                         <?php } ?>
                     </select>
@@ -97,4 +97,4 @@
     <script src="<?php echo Core\URL::asset('assets/js/bootstrap.min.js'); ?>"></script>
     <script src="<?php echo Core\URL::asset('assets/js/plugins/pace.min.js'); ?>"></script>
     <script src="<?php echo Core\URL::asset('assets/js/main.js'); ?>"></script>
-<?php Core\view::load('Backend/footer', $data); ?>
+<?php Core\View::loadView('Backend/footer'); ?>
