@@ -38,9 +38,12 @@ Seed -> http://localhost/php-mvc/public/seed.mvc
 
 Declare Routes for Request in "config/routes.php" file (GET/POST Supported Currently). Example
 
-Routes::get(contoller, link);
-Routes::get(contoller#method, link);
-Routes::get(contoller#method, link, filter);
+>Routes::get(contoller, link);
+>Routes::get(contoller#method, link);
+>Routes::get(contoller#method, link, filter);
+
+Here "?id" is the path variable. 
+
 
 ```sh
 <?php
