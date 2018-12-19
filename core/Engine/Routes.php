@@ -24,8 +24,11 @@ namespace {
 
             $data=new \StdClass;
             $data=json_decode(json_encode($data));
+            if(Core\Request::method() === 'POST') {
+                $data->requestBody = Core\Request::dataBinding();
+            }
             $found=0;
-            if(!isset($_REQUEST['q'])) $_REQUEST['q']='/';  
+            if(!isset($_REQUEST['q'])) $_REQUEST['q']='/';
             $req=ltrim(rtrim($_REQUEST['q'], '/'),'/');
             $req=explode('/',$req);
 
@@ -212,6 +215,17 @@ namespace {
                     $v = str_replace('/', '\\',$v);
                     $v = 'App\\Controllers\\'.$v;
                     $con=new $v;
+                  //   //$class = new ReflectionClass($con);
+                  //   $class = new ReflectionMethod($v, 'addUserAction');
+                  //   //print_r($class->getMethods('addUser')->getParameters());
+                  // //print_r($class->getParameters());
+                  //   $params = $class->getParameters();
+                  //   foreach ($params as $param) {
+                  //       //$param is an instance of ReflectionParameter
+                  //       echo $param->getName();
+                  //       //echo $param->isOptional();
+                  //   }
+                  //   exit;
                     if(sizeof($data)>0) {
                         call_user_func(array($con, 'index'), $data);
                     }
@@ -221,7 +235,8 @@ namespace {
                 }
             }
             else {
-               Core\View::load('route-404');
+                http_response_code(404);
+                Core\View::loadView('route-404');
             }
         }
     }
