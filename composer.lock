@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "77a3b7515fafc09561e36020c97bfd62",
+    "content-hash": "af07f518f281a11a3d65e04ea17bd166",
     "packages": [
         {
             "name": "respect/stringifier",
@@ -62,12 +62,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Respect/Validation.git",
-                "reference": "54293d4ca2846de8f7af47d251fdb33e94dc6fa8"
+                "reference": "fbaf78fc399fcb889278313afa49f4b3e5137d9b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Respect/Validation/zipball/54293d4ca2846de8f7af47d251fdb33e94dc6fa8",
-                "reference": "54293d4ca2846de8f7af47d251fdb33e94dc6fa8",
+                "url": "https://api.github.com/repos/Respect/Validation/zipball/fbaf78fc399fcb889278313afa49f4b3e5137d9b",
+                "reference": "fbaf78fc399fcb889278313afa49f4b3e5137d9b",
                 "shasum": ""
             },
             "require": {
@@ -122,7 +122,7 @@
                 "validation",
                 "validator"
             ],
-            "time": "2018-12-13T23:15:03+00:00"
+            "time": "2018-12-19T17:05:58+00:00"
         },
         {
             "name": "symfony/polyfill-mbstring",

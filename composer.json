@@ -12,5 +12,13 @@
     "minimum-stability": "dev",
     "require": {
         "respect/validation": "^2.0@dev"
+    },
+    "require-dev": {
+    },
+    "scripts": {
+        "server:start": "php -S 0.0.0.0:8000 -t public/"
+    },
+    "scripts-descriptions": {
+        "server:start": "Running Server on 0.0.0.0:8000"
     }
 }
