@@ -31,5 +31,19 @@ class Request {
     public static function method() {
         return $_SERVER['REQUEST_METHOD'];
     }
+    public static function contentType() {
+        if(Request::method() === 'POST' && isset($_SERVER['CONTENT_TYPE'])) {
+            return $_SERVER['CONTENT_TYPE'];
+        } else {
+            return "";
+        }
+    }
+    public static function dataBinding() {
+        if(strpos(Request::contentType(), 'application/json') !== false) {
+            return json_decode(json_encode(json_decode(file_get_contents('php://input'), true)));
+        } else {
+            return json_decode(json_encode($_POST));
+        }
+    }
 }
 ?>
