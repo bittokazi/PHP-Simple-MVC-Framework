@@ -1,0 +1,14 @@
+{
+    "name": "bittokazi/php-simple-mvc-framework",
+    "description": "PHP framework made for simplicity",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "bittokazi",
+            "email": "bitto.kazi@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
