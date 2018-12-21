@@ -1,3 +1,6 @@
+# Start by downloading through composer:
+  - composer create-project bittokazi/php-simple-mvc-framework
+
 # PHP Simple Model View Control(MVC) Framework
 
 Simple Model View and Control Framework Built on PHP.
@@ -13,15 +16,25 @@ Simple Model View and Control Framework Built on PHP.
   - Namespacing for every class file
   - Interceptor Feature added for modules(Intercepts even before filters)
   - Add View file as you want and call it from controller method
+  - ORM module ADDED for easier database operation
 
 # Upcoming Features!
 
-  - ORM module for easier database operation
   - Templating Engine Module.
 
 
 
 ### Installation
+
+# Through Composer
+
+  - composer create-project bittokazi/php-simple-mvc-framework
+  - Database migrations:
+      - composer db:install
+      - composer db:seed
+      - composer db:uninstall
+
+# Standalone installation
 
 Just Copy and Paste where you want to run the application and start development!
 
@@ -42,7 +55,7 @@ Declare Routes for Request in "config/routes.php" file (GET/POST Supported Curre
 >Routes::get(contoller#method, link);
 >Routes::get(contoller#method, link, filter);
 
-Here "?id" is the path variable. 
+Here "?id" is the path variable.
 
 
 ```sh
@@ -85,23 +98,23 @@ class all_database extends Database {
                 status VARCHAR(30),
                 role VARCHAR(30)
                 )');
-        
+
         $this->query('CREATE TABLE user_status (
                 id INT(3) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
                 title VARCHAR(255) NOT NULL UNIQUE
                 )');
-        
+
         $this->query('CREATE TABLE user_role (
                 id INT(3) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
                 title VARCHAR(255) NOT NULL UNIQUE
                 )');
-        
+
         $this->query('CREATE TABLE user_notes (
                 id INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
                 title VARCHAR(255) NOT NULL UNIQUE,
                 content TEXT
                 )');
-        
+
     }
     public function seed() {
         $this->query("INSERT INTO user_status VALUES('', 'Active')");
@@ -130,9 +143,9 @@ use Core\Model;
 use Core\Auth;
 
 public function all() {
-        
+
         return $this->DB()->prepared_select('SELECT *, user.id as id FROM user INNER JOIN user_role ON user.role=user_role.id', '', array());
-    
+
     }
 ?>
 ```
